@@ -8,6 +8,14 @@ import string, random
 
 
 
+
+
+
+
+
+
+
+
 items_shop = {"хлеб": 7,
               "вода": 5,
               "чипсы": 14,
@@ -15,7 +23,11 @@ items_shop = {"хлеб": 7,
               "ключ": 21,
               "ключ?": 78,
               "...": 999,
-              "семечки":5 }
+              "семечки": 5}
+
+items_attack = {"бита": 15,
+                "крепкая бита": 50,
+                "некрепкая бита": 10}
 cto = "нечто"
 nepr = 0
 #if cto in items_shop.keys():
@@ -32,7 +44,7 @@ input("не теряй все деньги иначе...")
 for i in range(50):
     print(random.choice(string.ascii_letters)+random.choice(string.ascii_letters)+random.choice(string.ascii_letters)+random.choice(string.ascii_letters))
 while money > 0:
-    comand = input("что ты хочешь зделать?(идти в магазин,идти работать)")
+    comand = input("что ты хочешь зделать?(идти в магазин,идти работать,счёт,сражатся)")
     if comand == "идти в магазин":
         comand = "нечто"
         comand2 = "нечто"
@@ -94,4 +106,43 @@ while money > 0:
                     print("теперь у вас ",money," монет!")
                 elif nepr == 1:
                     print("вы зделали чтото не правильное!")
+    elif comand == "счёт":
+        print("у вас ",money," монет!")
+    elif comand == "сражатся":
+        input("вы пошли в магазин оружии")
+        input("вы пришли!")
+        kupi_ory = "нечто"
+        orywka = input("что вы хотите купить?")
+        if orywka == "что купить?":
+            input("*ой забыл* сказал продавец")
+            input("*я продаю много чего но сначала*")
+            input("*...*")
+            input("продавец сказал что он продаёт*биту,крепкая биту,некрепкая биту*")
+            kupi_ory = input("что вы хотите купить?")
+            if kupi_ory in items_attack.keys():
+                        #проверка money >= cto
+                        
+                        money = money - items_attack[kupi_ory]
+                        print("вы купили ",kupi_ory,"за ",items_attack[kupi_ory])
+                        yron = yron + items_attack[kupi_ory]
+                        if money < 0:
+                            print("у вас нету денег!!!")
+                            input("нет что ты зделал!!")
+                            break
+                        print("у вас ",money," монет!") 
+        if kupi_ory == "отмена":
+            kupi_ory = "нечто"
+            
+        else:
+            print("вы пошли сражатся!")
+            input("ваш базовый урон ",yron)
+            input("....")
+            otm = 0
+            while otm != 6:
+                otm = otm + 1
+                print("........................................................................................................................................................................")
+            input("на вас напали!")
+            input("это дерево!(чТО?)")
+            input("вы атакуете дерево")
+            
 print("...")
